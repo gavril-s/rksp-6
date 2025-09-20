@@ -91,7 +91,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/SecuritesSwap.sol": "IERC20Minimal"
+			"contracts/SecuritiesSwap.sol": "IERC20Minimal"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -105,7 +105,7 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/SecuritesSwap.sol": {
+		"contracts/SecuritiesSwap.sol": {
 			"keccak256": "0x223b93b1d7137fb088c564ff41aa6595f588bccb2f24c2a562446132efcceb78",
 			"license": "MIT",
 			"urls": [

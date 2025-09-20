@@ -100,11 +100,11 @@
 			]
 		},
 		"tests/TestActors.sol": {
-			"keccak256": "0x3daee316d9b1ae46d0d7926183edbffdf16d3989549a93f330b5de1f5dda25ea",
+			"keccak256": "0xbee0abb5c7c006b530e29db4a2c6677e6c0e2ac919b1b4d65e966a6e0d851f7f",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://bd4b4308f63d5aee1ba9b2b5c2fdd7eb4dacafb2d26ef58eab4d1345bc4588e4",
-				"dweb:/ipfs/QmQaG8DBD36rWhanAXgHdfs6UQ8zgdgzGtwLLb2HNMkvEy"
+				"bzz-raw://d8c789a40c1bca3325e22b2bfbb56a071a7f5b1f2bc71d9c99ceab2dae83e3c2",
+				"dweb:/ipfs/QmaPqhRJrXXZxq5391mnU9WxDZ2tJe8z2tuiiY1cuBQ2io"
 			]
 		}
 	},
