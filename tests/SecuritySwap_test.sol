@@ -2,8 +2,8 @@
 pragma solidity ^0.8.20;
 
 import "remix_tests.sol";
-import "./SecurityToken.sol";
-import "./SecuritiesSwap.sol";
+import "../contracts/SecurityToken.sol";
+import "../contracts/SecuritiesSwap.sol";
 import "./TestActors.sol";
 
 contract SecuritiesSwapTest {

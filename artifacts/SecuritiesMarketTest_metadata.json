@@ -1,0 +1,110 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "beforeAll",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "testBuyWithWrongEthReverts",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "testListAndBuyFlow",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"testBuyWithWrongEthReverts()": {
+					"notice": "#value: 2 ether"
+				},
+				"testListAndBuyFlow()": {
+					"notice": "#value: 3 ether"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"tests/SecuritiesMarket_test.sol": "SecuritiesMarketTest"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/SecuritiesMarket.sol": {
+			"keccak256": "0xc4e88ab695603447a06e791b1ce2ac607b14bc9c4489534a253dd7ee44412e80",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://06b38ec1f5c6dde541c1a6f40ef5cfda07a30daa1a8f2cef424057099746cc2f",
+				"dweb:/ipfs/QmZknmGnrniRW1gvDMFXqdgAwyVxH7Sf81EUGtEa7BqXjR"
+			]
+		},
+		"contracts/SecurityToken.sol": {
+			"keccak256": "0xb5a51cf7aa26754360bb89514d94f757f3d08024893ce60cca5aa7d6ab2c1def",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d35360b8b0a2ca15a7e8647689584c08f8bfe0c1fa6de92647fd2b1ff74b5f9f",
+				"dweb:/ipfs/QmQv4SXMDZ6K6v1ceS7FLaLLf8JAKAy33McbDX4Bjjw4xx"
+			]
+		},
+		"remix_tests.sol": {
+			"keccak256": "0xe2783cdc204cba8c72494119339f1d90f9022b15d6c718c668b7f097d8e29787",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://bb6a22e64c7f16bcaab63b1c1a1b269d5be8a6d37bdd9dec1718477ab916b18e",
+				"dweb:/ipfs/QmdkW1tT5iadBvaHMCoskhDGZKnfdg8o1D9CcoQYtdJet7"
+			]
+		},
+		"tests/SecuritiesMarket_test.sol": {
+			"keccak256": "0xfab038e387a01afa21a48b387edce0d122f3fa1014e1d7018e099c42947ddf2a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2b714ae9a7f5c78e6a216f22ac2459632f5e6a5e9d1702f639acb793342d0088",
+				"dweb:/ipfs/QmbwCSFNEXfQCofd2VamchfmCiT3J9YT8QGte5R2WDMdTf"
+			]
+		},
+		"tests/TestActors.sol": {
+			"keccak256": "0xbee0abb5c7c006b530e29db4a2c6677e6c0e2ac919b1b4d65e966a6e0d851f7f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d8c789a40c1bca3325e22b2bfbb56a071a7f5b1f2bc71d9c99ceab2dae83e3c2",
+				"dweb:/ipfs/QmaPqhRJrXXZxq5391mnU9WxDZ2tJe8z2tuiiY1cuBQ2io"
+			]
+		}
+	},
+	"version": 1
+}

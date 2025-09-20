@@ -51,13 +51,12 @@ contract Actor {
         IMarketTest(market).cancel(id);
     }
 
-    function buy(address market, uint256 id, uint256 priceWei) external payable {
-        require(msg.value == priceWei, "bad value");
+    // IMPORTANT: These are NOT payable; the Actor pays from its own balance.
+    function buy(address market, uint256 id, uint256 priceWei) external {
         IMarketTest(market).buy{value: priceWei}(id);
     }
 
-    function tryBuy(address market, uint256 id, uint256 priceWei) external payable returns (bool ok) {
-        // low-level call to capture revert
+    function tryBuy(address market, uint256 id, uint256 priceWei) external returns (bool ok) {
         (ok, ) = market.call{value: priceWei}(abi.encodeWithSignature("buy(uint256)", id));
     }
 

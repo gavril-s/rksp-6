@@ -2,8 +2,8 @@
 pragma solidity ^0.8.20;
 
 import "remix_tests.sol";
-import "./SecurityToken.sol";
-import "./SecuritiesMarket.sol";
+import "../contracts/SecurityToken.sol";
+import "../contracts/SecuritiesMarket.sol";
 import "./TestActors.sol";
 
 contract SecuritiesMarketTest {
@@ -14,7 +14,7 @@ contract SecuritiesMarketTest {
 
     uint256 constant DECIMALS = 18;
 
-    // Allow this test contract to fund actors
+    // Allow this test contract to receive ETH from the test runner
     receive() external payable {}
 
     function beforeAll() public {
@@ -23,11 +23,12 @@ contract SecuritiesMarketTest {
         seller = new Actor();
         buyer  = new Actor();
 
-        // Mint tokens to seller (test contract is owner)
+        // Mint tokens to seller (this test contract is the token owner)
         token.mint(address(seller), 1_000 * 10**DECIMALS);
     }
 
-    function testListAndBuyFlow() public {
+    /// #value: 3 ether
+    function testListAndBuyFlow() public payable {
         uint256 amount = 200 * 10**DECIMALS;
         uint256 price  = 1 ether;
 
@@ -47,26 +48,28 @@ contract SecuritiesMarketTest {
         Assert.ok(active, "listing should be active");
         Assert.equal(token.balanceOf(address(market)), amount, "market should hold escrowed tokens");
 
-        // Fund buyer and purchase
-        (bool sent, ) = address(buyer).call{value: price}("");
+        // Fund buyer from THIS test contract (which received 3 ETH via #value)
+        (bool sent, ) = payable(address(buyer)).call{value: price}("");
         Assert.ok(sent, "funding buyer failed");
+        Assert.equal(buyer.selfBalance(), price, "buyer not funded correctly");
 
         uint256 sellerEthBefore = seller.selfBalance();
         uint256 buyerTokBefore  = token.balanceOf(address(buyer));
 
-        buyer.buy{value: price}(address(market), id, price);
+        // Buyer pays from its own balance
+        buyer.buy(address(market), id, price);
 
         // Post-conditions
         (, , , , bool activeAfter) = market.listings(id);
         Assert.ok(!activeAfter, "listing must be inactive after buy");
-
         Assert.equal(token.balanceOf(address(buyer)), buyerTokBefore + amount, "buyer must receive tokens");
 
         uint256 sellerEthAfter = seller.selfBalance();
         Assert.equal(sellerEthAfter, sellerEthBefore + price, "seller must receive ETH");
     }
 
-    function testBuyWithWrongEthReverts() public {
+    /// #value: 2 ether
+    function testBuyWithWrongEthReverts() public payable {
         uint256 amount = 50 * 10**DECIMALS;
         uint256 price  = 1.5 ether;
 
@@ -76,14 +79,20 @@ contract SecuritiesMarketTest {
         uint256 id = seller.list(address(market), address(token), amount, price);
 
         // Fund buyer with only 1 ether
-        (bool sent, ) = address(buyer).call{value: 1 ether}("");
-        Assert.ok(sent, "fund buyer failed");
+        (bool sent2, ) = payable(address(buyer)).call{value: 1 ether}("");
+        Assert.ok(sent2, "fund buyer failed");
+        Assert.equal(buyer.selfBalance(), 1 ether, "buyer funding mismatch");
 
-        bool ok = buyer.tryBuy{value: 1 ether}(address(market), id, 1 ether);
+        // attempt buy with wrong ETH → should revert (ok == false)
+        bool ok = buyer.tryBuy(address(market), id, 1 ether);
         Assert.ok(!ok, "buy should revert when ETH is wrong");
 
         // cancel and ensure tokens return to seller
         seller.cancel(address(market), id);
-        Assert.equal(token.balanceOf(address(seller)), (1_000 - 200)*10**DECIMALS + 50*10**DECIMALS, "seller should get tokens back after cancel");
+        Assert.equal(
+            token.balanceOf(address(seller)),
+            800 * 10**DECIMALS,  // 1000 - 200 sold in first test (returned 0), plus cancel return == still 800
+            "seller should get tokens back after cancel"
+        );
     }
 }

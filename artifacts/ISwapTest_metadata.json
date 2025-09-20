@@ -1,0 +1,90 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "tokenA",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "tokenB",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "partyA",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "partyB",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amountA",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amountB",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint64",
+						"name": "deadline",
+						"type": "uint64"
+					}
+				],
+				"name": "swap",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"notice": "Minimal swap interface",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"tests/TestActors.sol": "ISwapTest"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"tests/TestActors.sol": {
+			"keccak256": "0xbee0abb5c7c006b530e29db4a2c6677e6c0e2ac919b1b4d65e966a6e0d851f7f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d8c789a40c1bca3325e22b2bfbb56a071a7f5b1f2bc71d9c99ceab2dae83e3c2",
+				"dweb:/ipfs/QmaPqhRJrXXZxq5391mnU9WxDZ2tJe8z2tuiiY1cuBQ2io"
+			]
+		}
+	},
+	"version": 1
+}

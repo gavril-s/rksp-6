@@ -2,7 +2,7 @@
 pragma solidity ^0.8.20;
 
 import "remix_tests.sol"; // Remix asserts
-import "./SecurityToken.sol";
+import "../contracts/SecurityToken.sol";
 import "./TestActors.sol";
 
 contract SecurityTokenTest {

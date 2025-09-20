@@ -1,0 +1,112 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "beforeAll",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "testApproveAndTransferFrom",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "testInitialState",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "testOnlyOwnerMintRevertsForNonOwner",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "testOwnerCanMint",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "testTransfer",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"tests/SecurityToken_test.sol": "SecurityTokenTest"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/SecurityToken.sol": {
+			"keccak256": "0xb5a51cf7aa26754360bb89514d94f757f3d08024893ce60cca5aa7d6ab2c1def",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d35360b8b0a2ca15a7e8647689584c08f8bfe0c1fa6de92647fd2b1ff74b5f9f",
+				"dweb:/ipfs/QmQv4SXMDZ6K6v1ceS7FLaLLf8JAKAy33McbDX4Bjjw4xx"
+			]
+		},
+		"remix_tests.sol": {
+			"keccak256": "0xe2783cdc204cba8c72494119339f1d90f9022b15d6c718c668b7f097d8e29787",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://bb6a22e64c7f16bcaab63b1c1a1b269d5be8a6d37bdd9dec1718477ab916b18e",
+				"dweb:/ipfs/QmdkW1tT5iadBvaHMCoskhDGZKnfdg8o1D9CcoQYtdJet7"
+			]
+		},
+		"tests/SecurityToken_test.sol": {
+			"keccak256": "0x53a8f4f7bdcf4657892be84ff595c86a45298e5f36f19dfc18fc3a351bd53aa7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://aa70381a43ec6e9a520f3d065d49cd02255e664f6d1d7c3f35152083d1015395",
+				"dweb:/ipfs/QmXqk7wMdyNfaJePaUe6Hdvd45hWPXyYEdj4WHXMeDxWrq"
+			]
+		},
+		"tests/TestActors.sol": {
+			"keccak256": "0x3daee316d9b1ae46d0d7926183edbffdf16d3989549a93f330b5de1f5dda25ea",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://bd4b4308f63d5aee1ba9b2b5c2fdd7eb4dacafb2d26ef58eab4d1345bc4588e4",
+				"dweb:/ipfs/QmQaG8DBD36rWhanAXgHdfs6UQ8zgdgzGtwLLb2HNMkvEy"
+			]
+		}
+	},
+	"version": 1
+}
