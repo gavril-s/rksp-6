@@ -1,0 +1,166 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "DeadlineExpired",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "InsufficientAllowance",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "InsufficientBalance",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "NotParticipant",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "partyA",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "partyB",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "tokenA",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "tokenB",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amountA",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amountB",
+						"type": "uint256"
+					}
+				],
+				"name": "Swapped",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "tokenA",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "tokenB",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "partyA",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "partyB",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amountA",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amountB",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint64",
+						"name": "deadline",
+						"type": "uint64"
+					}
+				],
+				"name": "swap",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"swap(address,address,address,address,uint256,uint256,uint64)": {
+					"params": {
+						"amountA": "количество токена A (минимальные единицы), которое отдаёт A",
+						"amountB": "количество токена B (минимальные единицы), которое отдаёт B",
+						"deadline": "unix-время, после которого обмен невозможен (0 = без ограничения)",
+						"partyA": "участник A",
+						"partyB": "участник B",
+						"tokenA": "адрес токена, который отдаёт partyA и получает partyB",
+						"tokenB": "адрес токена, который отдаёт partyB и получает partyA"
+					}
+				}
+			},
+			"title": "SecuritiesSwap — атомарный обмен токенами между двумя держателями",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"notice": "Обе стороны заранее делают approve на этот контракт; затем любой из них вызывает swap",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/SecuritesSwap.sol": "SecuritiesSwap"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/SecuritesSwap.sol": {
+			"keccak256": "0x223b93b1d7137fb088c564ff41aa6595f588bccb2f24c2a562446132efcceb78",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b4b412d9057195176a9704aa587adf4343c64f361d7d2ff933bcce595bf0611d",
+				"dweb:/ipfs/QmdGjZFNwW4MRSr2cuUdxR1bdCxxHmKjEee6fvrNGwWUr5"
+			]
+		}
+	},
+	"version": 1
+}
