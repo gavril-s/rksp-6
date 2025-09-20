@@ -40,10 +40,10 @@
 			"kind": "user",
 			"methods": {
 				"testBuyWithWrongEthReverts()": {
-					"notice": "#value: 2 ether"
+					"notice": "#value: 2000000000000000000   (2 ether)"
 				},
 				"testListAndBuyFlow()": {
-					"notice": "#value: 3 ether"
+					"notice": "#value: 3000000000000000000   (3 ether)"
 				}
 			},
 			"version": 1
@@ -90,11 +90,11 @@
 			]
 		},
 		"tests/SecuritiesMarket_test.sol": {
-			"keccak256": "0xfab038e387a01afa21a48b387edce0d122f3fa1014e1d7018e099c42947ddf2a",
+			"keccak256": "0x6d2857f542e78f532a0e5494b3ba02c2ab3cb707ecdc94573772acbe459e9f27",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://2b714ae9a7f5c78e6a216f22ac2459632f5e6a5e9d1702f639acb793342d0088",
-				"dweb:/ipfs/QmbwCSFNEXfQCofd2VamchfmCiT3J9YT8QGte5R2WDMdTf"
+				"bzz-raw://bd5b68d733a66bfb0b3449de88c4301c91bf6d8b4cf1062639135a90eb79a709",
+				"dweb:/ipfs/QmWWhQnDxL3hLFjgu8FwvZPYLVKNVbKy3NRfVcYpLKnzZd"
 			]
 		},
 		"tests/TestActors.sol": {

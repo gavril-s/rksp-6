@@ -14,7 +14,7 @@ contract SecuritiesMarketTest {
 
     uint256 constant DECIMALS = 18;
 
-    // Allow this test contract to receive ETH from the test runner
+    // Allow this test contract to receive ETH from the runner
     receive() external payable {}
 
     function beforeAll() public {
@@ -23,14 +23,17 @@ contract SecuritiesMarketTest {
         seller = new Actor();
         buyer  = new Actor();
 
-        // Mint tokens to seller (this test contract is the token owner)
+        // Mint tokens to seller (this test contract is token owner)
         token.mint(address(seller), 1_000 * 10**DECIMALS);
     }
 
-    /// #value: 3 ether
+    /// #value: 3000000000000000000   (3 ether)
     function testListAndBuyFlow() public payable {
         uint256 amount = 200 * 10**DECIMALS;
         uint256 price  = 1 ether;
+
+        // Sanity: ensure this test function actually got ETH from the directive
+        Assert.ok(address(this).balance >= price, "test has no ETH");
 
         // Seller approves market & lists
         bool okAppr = seller.approveToken(address(token), address(market), amount);
@@ -48,7 +51,7 @@ contract SecuritiesMarketTest {
         Assert.ok(active, "listing should be active");
         Assert.equal(token.balanceOf(address(market)), amount, "market should hold escrowed tokens");
 
-        // Fund buyer from THIS test contract (which received 3 ETH via #value)
+        // Fund buyer from THIS test contract
         (bool sent, ) = payable(address(buyer)).call{value: price}("");
         Assert.ok(sent, "funding buyer failed");
         Assert.equal(buyer.selfBalance(), price, "buyer not funded correctly");
@@ -68,10 +71,12 @@ contract SecuritiesMarketTest {
         Assert.equal(sellerEthAfter, sellerEthBefore + price, "seller must receive ETH");
     }
 
-    /// #value: 2 ether
+    /// #value: 2000000000000000000   (2 ether)
     function testBuyWithWrongEthReverts() public payable {
         uint256 amount = 50 * 10**DECIMALS;
         uint256 price  = 1.5 ether;
+
+        Assert.ok(address(this).balance >= 1 ether, "test has no ETH");
 
         // prepare new listing
         bool okAppr = seller.approveToken(address(token), address(market), amount);
@@ -91,7 +96,7 @@ contract SecuritiesMarketTest {
         seller.cancel(address(market), id);
         Assert.equal(
             token.balanceOf(address(seller)),
-            800 * 10**DECIMALS,  // 1000 - 200 sold in first test (returned 0), plus cancel return == still 800
+            800 * 10**DECIMALS,  // 1000 - 200 sold in first test; after cancel returns to 800
             "seller should get tokens back after cancel"
         );
     }
